@@ -1,7 +1,5 @@
 { open Parser }
 
-let Decimal = '.' ['0'-'9']+
-
 rule token = parse
   [' ' '\t' '\r' '\n'] { token lexbuf } (* Whitespace *)
 | "/*"     		{ comment lexbuf }      (* Comments *)
@@ -11,46 +9,20 @@ rule token = parse
 | ')'			{ RPAREN }
 | '{'			{ LBRACE }
 | '}'			{ RBRACE }
-| ';'			{ SEMI }
-| ','      		{ COMMA }
+| '!'			{ EXP }
 | '^'			{ VIB }
 | '~'			{ TREM }
-| '+'			{ PLUS }
-| "++"			{ INCR }
-| '-'			{ MINUS }
-| "--"			{ DECR }
-| '*'			{ TIMES }
-| '/'			{ DIVIDE }
-| '.'			{ SERIAL }
-| ':'			{ PARALLEL }
-| "->"			{ ARROW }
-| '='			{ ASSIGN }
-| "=="			{ EQ }
+| '*'			{ STAR }
+| '\'			{ FSLASH }
+| ':'			{ COLON }
+| "->"			{ RARROW }
+| "<-"			{ LARROW }
+| "=="			{ DEQ }
 | "!="			{ NEQ }
 | '<'			{ LT }
-| "<="			{ LEQ }
 | '>'			{ GT }
-| ">="			{ GEQ }
-| "if"			{ IF }
-| "else"		{ ELSE }
-| "for"			{ FOR }
-| "while"		{ WHILE }
-| "loop"		{ LOOP }
-| "return"		{ RETURN }
-| "fun"			{ FUN }
-| "vol"			{ VOL }
-| "dur"			{ DUR }
-| "pitch"		{ PITCH }
-| "double"		{ DOUBLE }
-| "note"		{ NOTE }
-| "rest"		{ REST }
-| "track"		{ TRACK }
-| "chord"		{ CHORD }
-| "score"		{ SCORE }
-| "print"		{ PRINT }
-(*
-| "array"		{ ARRAY } 
-*)
+| "include"		{ INCL }
+
 | '-'? Decimal as lxm { LITERAL(lxm) } (* Note in dj literals are really only doubles *)
 | '-'? ['0'-'9']+ Decimal? as lxm { LITERAL(lxm) } (* Note in dj literals are really only doubles *)
 | ['a'-'z' 'A'-'Z']['a'-'z' 'A'-'Z' '0'-'9' '_']* as lxm { ID(lxm) }
