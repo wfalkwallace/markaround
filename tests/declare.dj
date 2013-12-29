@@ -1,0 +1,12 @@
+song score ( ) {
+/* Simple note text. */
+
+double pitchA;
+
+note mynote;
+
+score s = score();
+
+return s;
+
+}

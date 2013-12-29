@@ -1,0 +1,16 @@
+song score ( ) {
+
+/*
+Incr and Decr
+ */
+
+ double i;
+ i ++;
+ 
+ 
+ score s = score();
+
+ return s;
+
+ 
+}

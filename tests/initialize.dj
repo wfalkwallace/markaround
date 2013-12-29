@@ -1,0 +1,18 @@
+hello track ( ) {
+/* Simple note text. */
+
+double pitchA = 60;
+
+return track(5);
+
+}
+
+song score () {
+
+
+track t = track (13);
+score s = score(t);
+
+
+	return s;
+}

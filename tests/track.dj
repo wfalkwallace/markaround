@@ -1,0 +1,11 @@
+song score ()
+{
+	track t;
+	chord c;
+	chord d;
+	t = t.c;
+	
+	score s = score(t);
+	return s;
+
+} 

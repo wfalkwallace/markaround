@@ -1,0 +1,13 @@
+song score ( ) {
+
+/*
+Simple arithmetic test.
+Can test comments too.
+ */
+print(1+1);
+
+score s = score();
+
+return s;
+
+}

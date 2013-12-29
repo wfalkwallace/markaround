@@ -1,0 +1,40 @@
+/* Test for if statement */
+
+song score () 
+{
+	
+	double i;
+	double j;
+
+	i = 0;
+	j = 1;
+
+	/* ID < LIT */
+	if( i < 1)
+	{
+		i = i + 1;
+	}
+
+	/* ID > LIT */
+	if( 1 > i)
+	{
+		i = i + 1;
+	}
+	
+	/* ID == ID */
+	if( 0 == 1 )
+	{
+		i = i + 1;
+	}
+
+	/* LIT != LIT */
+	if( i != j )
+	{
+		i = i + 1;
+	}
+	
+	score s = score();
+
+	return s;
+
+}

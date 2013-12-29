@@ -1,0 +1,25 @@
+song score ()
+{
+	/* rest of duration 5  */
+	/* make a chord which is a rest + a note */	
+	rest r;
+	chord d;
+	double i = 3;
+	double a;
+	double b;
+	double c;
+
+	
+	r = rest (5);
+	r = rest (i);
+	
+
+	note n = note (a, b, c);
+	d = d : n;
+
+	score s = score();
+
+	return s;
+
+
+} 

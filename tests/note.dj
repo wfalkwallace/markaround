@@ -1,0 +1,30 @@
+song score ( ) {
+
+/*
+Simple note text.
+*/
+
+
+double pitchA;
+double volume;
+/* double volume; */
+double duration;
+note n;
+note n1;
+note n2;
+
+
+pitchA = 1;
+volume = 2;
+duration = 4;
+
+
+n = note (pitchA, volume, duration);
+n1 = note (1.33, 2, 3);
+n2 = note (n1 -> pitch, volume, 4);
+track t = track (5);
+score s = score( t );
+
+return s;
+	
+}

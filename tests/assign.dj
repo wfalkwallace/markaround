@@ -1,0 +1,20 @@
+
+song score ( ) {
+/* Simple note text. */
+
+/* individual declaration + assignment */
+
+
+double pitchA;
+double pitchB;
+/* pitchA = 60; */
+
+
+/* declaration + initialization */
+pitchB = 900;
+
+score s = score();
+
+return s;
+
+}

@@ -1,0 +1,16 @@
+double glob
+
+song score ( ) {
+
+/*
+Simple arithmetic test.
+Can test comments too.
+ */
+glob = 5;
+print(1+1);
+
+score s = score();
+
+return s;
+
+}

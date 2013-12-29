@@ -1,0 +1,27 @@
+/*
+Tests chord
+Note- right now, all declarations must come before 
+ALL inititializations even if they are for different
+variables.
+
+Recall: chord must be enclosed by parenthesis
+*/
+
+song score () 
+	{
+		note n1;
+		note n2;
+		note n3;
+		chord p;
+		double a;
+		double b;
+		double c;
+
+		n2 = note ( a, b, c);
+		p = chord ( n1 , n2 , n3 );
+
+		score s = score();
+
+		return s;
+
+	}

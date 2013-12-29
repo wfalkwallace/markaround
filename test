@@ -1,0 +1,86 @@
+#!/bin/bash
+WDJC="./wdjc"
+
+# make the executables
+echo ">> Making WDJC into" $(pwd) "<<" 
+echo
+make
+echo
+
+# Set time limit for all operations
+ulimit -t 30
+
+#check for command line args (flags) can be -a, -s, or -j for now; default to a
+#if flag is a - AST
+if [[ $1 =~ '-a' ]]; then
+	echo ">> Compiling AST <<" 
+	echo
+	for file in ./tests/*.dj
+	do
+		echo $file
+		echo ------------------------
+		$WDJC -a < $file
+		echo
+	done
+	echo ">> Done Compiling AST <<" 
+	echo
+#if flag is s - SAST
+elif [[ $1 =~ '-s' ]]; then
+	echo ">> Compiling SAST <<" 
+	echo
+	for file in ./tests/*.dj
+	do
+		echo $file
+		echo ------------------------
+		$WDJC -s < $file
+		echo
+	done
+	echo ">> Done Compiling SAST <<" 
+	echo
+#if flag is j - JAVA
+elif [[ $1 =~ '-j' ]]; then
+	echo ">> Compiling JAVA <<" 
+	echo
+	for file in ./tests/*.dj
+	do
+		name=$(basename $file .dj)
+		echo $file
+		echo ------------------------
+		$WDJC -j $name < $file
+		echo
+	done
+	echo ">> Done Compiling JAVA <<" 
+	echo
+#if flag is j - JAVA
+elif [[ $1 =~ '-c' ]]; then
+	echo ">> Compiling <<" 
+	echo
+	for file in ./tests/*.dj
+	do
+		name=$(basename $file .dj)
+		echo $file
+		echo ------------------------
+		$WDJC -c $name < $file
+		echo
+	done
+	echo ">> Done Compiling <<" 
+	echo
+	
+#if no flag, default to ast
+else
+	echo ">> Compiling AST <<" 
+	echo
+	for file in ./tests/*.dj
+	do
+		echo $file
+		echo ------------------------
+		$WDJC -a < $file
+		echo
+	done
+	echo ">> Done Compiling AST <<" 
+	echo
+fi
+
+# cleanup
+echo ">> Cleaning Up <<" 
+make clean

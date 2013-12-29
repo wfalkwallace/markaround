@@ -1,0 +1,24 @@
+song score () 
+{
+	/*simple note test */
+
+	double pitchA; 
+	double volume; 
+	double duration; 
+
+	pitchA = 440; 
+	volume=50; 
+	duration=4; 
+	
+	note n = note (pitchA, volume, duration);
+
+	chord c = chord(n);
+		
+	track t = track( 0 );
+	
+	t = t . c;
+	
+	score s = score(t);
+
+	return s;
+}
