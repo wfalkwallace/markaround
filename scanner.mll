@@ -3,6 +3,7 @@
 rule token = parse
   [' ' '\t' '\r' '\n'] { token lexbuf } (* Whitespace *)
 | "/*"     		{ comment lexbuf }      (* Comments *)
+| "//"     		{ commentline lexbuf }      (* Comments *)
 | '['			{ LBRACK }
 | ']'			{ RBRACK }
 | '('			{ LPAREN }
@@ -10,11 +11,11 @@ rule token = parse
 | '{'			{ LBRACE }
 | '}'			{ RBRACE }
 | '!'			{ EXP }
-| '^'			{ VIB }
-| '~'			{ TREM }
+| '^'			{ HAT }
+| '~'			{ TILDE }
 | '*'			{ STAR }
-| '\'			{ FSLASH }
-| ':'			{ COLON }
+| '\'			{ SLASH }
+| '::'			{ COLONS }
 | "->"			{ RARROW }
 | "<-"			{ LARROW }
 | "=="			{ DEQ }
@@ -23,7 +24,6 @@ rule token = parse
 | '>'			{ GT }
 | "include"		{ INCL }
 
-| '-'? Decimal as lxm { LITERAL(lxm) } (* Note in dj literals are really only doubles *)
 | '-'? ['0'-'9']+ Decimal? as lxm { LITERAL(lxm) } (* Note in dj literals are really only doubles *)
 | ['a'-'z' 'A'-'Z']['a'-'z' 'A'-'Z' '0'-'9' '_']* as lxm { ID(lxm) }
 | eof { EOF }
@@ -33,4 +33,6 @@ and comment = parse
   "*/" { token lexbuf }
 | _    { comment lexbuf }
 
-
+and commentline = parse
+  ['\r' '\n'] { token lexbuf }
+| _    { comment lexbuf }
