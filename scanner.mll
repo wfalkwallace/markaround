@@ -1,8 +1,11 @@
 { open Parser }
 
 rule token = parse
-  [' ' '\t' '\r' '\n'] { token lexbuf } (* Whitespace *)
-| "/*"     		{ comment lexbuf }      (* Comments *)
+  ' '			{ token lexbuf } 			(* Whitespace *)
+| '\t'			{ TAB }
+| '\r'			{ NEW }
+| '\n'			{ NEW }
+| "/*"     		{ comment lexbuf }      	(* Comments *)
 | "//"     		{ commentline lexbuf }      (* Comments *)
 | '['			{ LBRACK }
 | ']'			{ RBRACK }
@@ -14,10 +17,19 @@ rule token = parse
 | '^'			{ HAT }
 | '~'			{ TILDE }
 | '*'			{ STAR }
-| '\'			{ SLASH }
+| '\'			{ BACKSLASH }
+| '/'			{ FRONTSLASH }
+| '&'			{ AMP }
+| '`'			{ TICK }
+| '''			{ SQUOTE }
+| '"'			{ DQUOTE }
+| '|'			{ BAR }
 | '::'			{ COLONS }
+| "-"			{ DASH }
 | "->"			{ RARROW }
+| "-->"			{ RARROWS }
 | "<-"			{ LARROW }
+| "<--"			{ LARROWS }
 | "=="			{ DEQ }
 | "!="			{ NEQ }
 | '<'			{ LT }
