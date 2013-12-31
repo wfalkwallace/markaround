@@ -1,37 +1,25 @@
 %{ open Ast %}
 
-%token LBRACK RBRACK LPAREN RPAREN LBRACE RBRACE 
-%token COMMA SEMI ASSIGN
-%token PLUS MINUS TIMES DIVIDE 
-%token SERIAL PARALLEL
-%token VIB TREM ARROW
-%token EQ NEQ INCR DECR
-%token LT LEQ GT GEQ
-%token IF ELSE FOR WHILE LOOP RETURN DOUBLE PRINT
-%token FUN VOL DUR PITCH INSTR
+%token TAB NEW BACKSLASH FRONTSLASH
+%token LBRACK RBRACK LPAREN RPAREN LBRACE RBRACE
+%token EXP HAT TILDE STAR AMP
+%token TICK SQUOTE DQUOTE
+%token BAR COLONS DASH RARROW RARROWS LARROW LARROWS 
+%token DEQ NEQ LT GT 
+%token INCL
+
+/*
 %token <string> LITERAL
 %token <string> ID
-%token NOTE REST CHORD TRACK SCORE
 %token EOF
 
-/*ie TIMES DIVIDE is higher precedence than ASSIGN*/
-%nonassoc NOELSE
-%nonassoc ELSE
-/*Right associative because if you have a = b = c you want
-to do (a = (b = c))*/
-%right ASSIGN
-/* Equals/neq association: (a == b) == c */
 %left EQ NEQ
 %left LT GT LEQ GEQ
-/*SERIAL/PARALLEL defaulted to PLUS/MINUS Associativity*/
 %left SERIAL PARALLEL
 %left PLUS MINUS
 %left TIMES DIVIDE
 %left VIB TREM
-/*incr - incrememnt (++); decr - decrement  (--) */
-/*Ex: (note++)++ */
-%left INCR DECR
-
+*/
 
 
 %start program
@@ -45,61 +33,8 @@ program:
  | program fdecl { fst $1, ($2 :: snd $1) }
 
 
-/*  --- FUNCTION --- */
-fdecl:
-
-  ID DOUBLE LPAREN formals_opt RPAREN LBRACE stmt_list RBRACE
-    {{ 
-       rtype = Double;
-       fname = $1;
-	     formals = $4;
-	     body = List.rev $7
-    }}
-    | ID NOTE LPAREN formals_opt RPAREN LBRACE stmt_list RBRACE
-    {{ 
-       rtype = Note;
-       fname = $1;
-       formals = $4;
-       body = List.rev $7
-    }}
-    | ID CHORD LPAREN formals_opt RPAREN LBRACE stmt_list RBRACE
-    {{ 
-       rtype = Chord;
-       fname = $1;
-       formals = $4;
-       body = List.rev $7
-    }}
-
-    | ID REST LPAREN formals_opt RPAREN LBRACE stmt_list RBRACE
-    {{ 
-       rtype = Rest;
-       fname = $1;
-       formals = $4;
-       body = List.rev $7
-    }}
-    | ID TRACK LPAREN formals_opt RPAREN LBRACE stmt_list RBRACE
-    {{ 
-       rtype = Track;
-       fname = $1;
-       formals = $4;
-       body = List.rev $7
-    }}
-    | ID SCORE LPAREN formals_opt RPAREN LBRACE stmt_list RBRACE
-    {{ 
-       rtype = Score;
-       fname = $1;
-       formals = $4;
-       body = List.rev $7
-    }}
 
 
-/* --- FORMALS --- */
-/* formals to be vdecl */
-formal:
-  vdecl { $1 }
-
-
-/* optional function arguments */
 formals_opt:
     /* nothing */ { [] }
   | formal_list   { List.rev $1 }
@@ -108,17 +43,8 @@ formal_list:
     formal                   { [$1] }
   | formal_list COMMA formal { $3 :: $1 }
 
-
-/* --- VARIABLE DECLARATIONS --- */
 vdecl:
    dType ID     { { vType = $1;  vName = $2; } }
-
-
-/*
-vdecl_list:
-   */ /* nothing *//*    { [] }
-  | vdecl_list vdecl { $2 :: $1 }
-*/
 
 vinit:
     vdecl ASSIGN expr { Vinit($1, $3) }
@@ -183,18 +109,6 @@ dType:
  | REST {Rest}
  | SCORE {Score}
 
-
-/* --- MODIFIERS --- */
-/*
-modifier:
-
-modifier_options:
-  BEND    {$1}
-  | VIB   {$1}
-  | TREM  {$1}
-
-*/
-/* --- STATEMENTS --- */
 
 stmt:
     expr SEMI { Expr($1) }
