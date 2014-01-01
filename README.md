@@ -18,6 +18,11 @@ Extended Markdown Flavor
 	- `<` and `>` and html?
 	- `!` and combos: `[!...]`
 	- `\`
+	- `|`
+	- `:`
+	- `::`
+	- `&`
+	- `[{()}]`
 	- ...
 	
 Questions:
