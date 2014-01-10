@@ -24,6 +24,7 @@ Extended Markdown Flavor
 	- `[{()}]`
 	- ...
 - checkout [GFM](https://help.github.com/articles/github-flavored-markdown)
+- SEE [df-md](http://daringfireball.net/projects/markdown/syntax) standard
 	
 Questions:
 
