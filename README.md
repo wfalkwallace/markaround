@@ -23,6 +23,7 @@ Extended Markdown Flavor
 	- `&`
 	- `[{()}]`
 	- ...
+- checkout [GFM](https://help.github.com/articles/github-flavored-markdown)
 	
 Questions:
 
