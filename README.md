@@ -30,6 +30,8 @@ Questions:
 
 - `<br>` and multiline breaks (latex)
 - straight html
+- underline (reuse: doubled underscore/star for bold/ital)
+- macros (see next)
 - `include` filetype checking?
 - comments/actions
 - escapes `&amp;`, `&copy;` as & and © -- less-than and tags too
