@@ -36,7 +36,7 @@ rule token = parse
 | '>'			{ GT }
 | "include"		{ INCL }
 
-| '-'? ['0'-'9']+ Decimal? as lxm { LITERAL(lxm) } (* Note in dj literals are really only doubles *)
+| '-'? ['0'-'9']+ Decimal? as lxm { LITERAL(lxm) } (* are numbers treated differently? what about escape sequences? *)
 | ['a'-'z' 'A'-'Z']['a'-'z' 'A'-'Z' '0'-'9' '_']* as lxm { ID(lxm) }
 | eof { EOF }
 | _ as char { raise (Failure("Illegal character " ^ Char.escaped char)) }
