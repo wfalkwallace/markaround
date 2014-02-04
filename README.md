@@ -27,6 +27,11 @@ Extended Markdown Flavor
 - and also [notehub](http://www.notehub.org/)
 - SEE [df-md](http://daringfireball.net/projects/markdown/syntax) standard
 	
+Topics:
+
+- ARROWS AND SYBOLS
+- MATH (mathjax? other js features/libraries?)
+
 Questions:
 
 - `<br>` and multiline breaks (latex)
