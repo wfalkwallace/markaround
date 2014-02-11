@@ -3,7 +3,7 @@ markaround
 
 Extended Markdown Flavor
 
-
+GOD. we need variables. look at less. @var? %? 
 - line comments: `//`
 - multi-line comments `/* ... */`
 - Tokens TBD
