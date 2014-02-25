@@ -3,9 +3,11 @@ markaround
 
 Extended Markdown Flavor
 
-GOD. we need variables. look at less. @var? %? 
-- line comments: `//`
-- multi-line comments `/* ... */`
+- we need variables. look at less. @var? %? 
+- alignment (float)
+- COMMENTS
+	- line comments: `//`
+	- multi-line comments `/* ... */`
 - Tokens TBD
 	- `::`
 	- `->`, `<-`
@@ -23,9 +25,10 @@ GOD. we need variables. look at less. @var? %?
 	- `&`
 	- `[{()}]`
 	- ...
-- checkout [GFM](https://help.github.com/articles/github-flavored-markdown)
-- and also [notehub](http://www.notehub.org/)
-- SEE [df-md](http://daringfireball.net/projects/markdown/syntax) standard
+- checkout 
+	- [GFM](https://help.github.com/articles/github-flavored-markdown)
+	- [notehub](http://www.notehub.org/)
+	- [df-md](http://daringfireball.net/projects/markdown/syntax) standard
 	
 Topics:
 
@@ -36,7 +39,8 @@ Questions:
 
 - `<br>` and multiline breaks (latex)
 - straight html
-- underline (reuse: doubled underscore/star for bold/ital)
+- underline (reuse: doubled underscore/star for bold/ital; <hr>)
+- `~` strikethrough (equiv?)
 - macros (see next)
 - `include` filetype checking?
 - comments/actions
