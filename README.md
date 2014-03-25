@@ -8,6 +8,7 @@ Extended Markdown Flavor
 - COMMENTS
 	- line comments: `//`
 	- multi-line comments `/* ... */`
+- campfire emoji + bootstrap glyphs?
 - Tokens TBD
 	- `::`
 	- `->`, `<-`
