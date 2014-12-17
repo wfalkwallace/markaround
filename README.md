@@ -3,7 +3,7 @@ markaround
 
 Extended Markdown Flavor
 
-- we need variables. look at less. @var? %? 
+- we need variables. look at less. @var? %?
 - alignment (float)
 - COMMENTS
 	- line comments: `//`
@@ -11,7 +11,7 @@ Extended Markdown Flavor
 - campfire emoji + bootstrap glyphs?
 - Tokens TBD
 	- `::`
-	- `->`, `<-`
+	- `->` and  `<-`
 	- `~`
 	- `^`
 	- `*` (maybe `**...`)
@@ -26,11 +26,11 @@ Extended Markdown Flavor
 	- `&`
 	- `[{()}]`
 	- ...
-- checkout 
+- checkout
 	- [GFM](https://help.github.com/articles/github-flavored-markdown)
 	- [notehub](http://www.notehub.org/)
 	- [df-md](http://daringfireball.net/projects/markdown/syntax) standard
-	
+
 Topics:
 
 - ARROWS AND SYBOLS
