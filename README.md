@@ -1,6 +1,5 @@
 markaround
 ==========
-
 Extended Markdown Flavor
 
 - we need variables. look at less. @var? %?
